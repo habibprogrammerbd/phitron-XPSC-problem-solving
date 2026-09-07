@@ -57,15 +57,15 @@ int main()
 
 
 
-    // tuple<string, int, string> student;
-    // // student = {"habib",1,"01740600196"};
-    // student = make_tuple("habib", 30, "01850078960");
+    tuple<string, int, string> student;
+    // student = {"habib",1,"01740600196"};
+    student = make_tuple("habib", 30, "01850078960");
 
-    // auto [name, roll, number] = student;
+    auto [name, roll, number] = student;
 
-    // // cout << get<0>(student) << " " <<  get<1>(student) << " " << get<2>(student)<< endl;
+    // cout << get<0>(student) << " " <<  get<1>(student) << " " << get<2>(student)<< endl;
 
-    // cout << name << " " << roll << " " << number << endl;
+    cout << name << " " << roll << " " << number << endl;
 
     return 0;
 }
