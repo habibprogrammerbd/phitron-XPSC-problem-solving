@@ -1,0 +1,4 @@
+3
+Apple 120
+Orange 80
+Banana 40
