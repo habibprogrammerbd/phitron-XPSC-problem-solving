@@ -9,7 +9,7 @@ int main()
     int n, k;
     cin >> n >> k;
 
-    map<string, string> mmp;
+    map<string, string>  mmp;
     // map<string, string> mp;
     for (int i = 0; i < n; i++)
     {
@@ -19,7 +19,7 @@ int main()
         mmp[z] = x;
     }
 
-    for (int i = 0; i < k; i++)
+    for (int i = 0; i < k; i++) 
     {
         string x, y;
         cin >> x >> y;

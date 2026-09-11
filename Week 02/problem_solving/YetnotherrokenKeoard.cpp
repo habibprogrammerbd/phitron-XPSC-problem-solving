@@ -83,10 +83,10 @@ int main()
             }
         }
 
-        for (int i = 0; i < s.size(); i++)
+        for (int i = 1; i <= s.size(); i++)
         {
             if (!idx_oen.empty() && i == idx_oen.front())
-            {
+            { 
                 cout << s[i];
                 idx_oen.pop_front();
             }

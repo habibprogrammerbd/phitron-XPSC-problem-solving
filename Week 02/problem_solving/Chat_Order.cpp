@@ -8,25 +8,24 @@ int main()
 
     int n;
     cin >> n;
-    deque<string> v;
+    vector<string> v;
+    map<string,int> vd;
     for (int i = 0; i < n; i++)
     {
         string s;
         cin >> s;
-        auto it = find(v.begin(), v.end(), s);
-        if (it == v.end())
-        {
-            v.push_front(s);
-        }
-        else
-        {
-            v.erase(it + 0);
-            v.push_front(s);
-        }
+        v.push_back(s);
     }
 
-    for (auto x : v)
-        cout << x << endl;
+    for (int i = v.size() - 1; i >= 0; i--)
+    {
+        auto it = vd.find(v[i]);
+        if (it == vd.end())
+        {
+            cout << v[i] << endl;
+            vd[v[i]]++;
+        }
+    }
 
     return 0;
 }
