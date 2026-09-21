@@ -12,40 +12,48 @@ int main()
     {
         int n;
         cin >> n;
-        priority_queue<int> pq_one;
-        priority_queue<int, vector<int>, greater<int>> pq_two;
+        map<int, int> mp;
         for (int i = 0; i < n; i++)
         {
             int x;
             cin >> x;
-            pq_one.push(x);
-            pq_two.push(x);
+            mp[x]++;
         }
-        int sz_one = 0;
-        int sz_two = 0;
-        while (!pq_one.empty())
+
+        priority_queue<int> pq1;
+        for (auto [x, y] : mp)
         {
-            if (pq_one.top() != pq_two.top())
+            pq1.push(y);
+        }
+
+        while (!pq1.empty())
+        {
+            if(pq1.size() < 2)
             {
-                pq_one.pop();
-                pq_two.pop();
+                break;
             }
-            else
+            int x, y;
+            x = pq1.top();
+            pq1.pop();
+            y = pq1.top();
+            pq1.pop();
+            x--, y--;
+            if (x >= 1)
             {
-                sz_one++;
-                sz_two++;
-                pq_one.pop();
-                pq_two.pop();
+                pq1.push(x);
+            }
+            if (y >= 1)
+            {
+                pq1.push(y);
             }
         }
-        if (n % 2 != 0)
+        int ans = 0;
+        while (!pq1.empty())
         {
-            cout << sz_one * sz_two << endl;
+            ans += pq1.top();
+            pq1.pop();
         }
-        else
-        {
-            cout << sz_one << endl;
-        }
+        cout << ans << endl;
     }
 
     return 0;
