@@ -35,6 +35,9 @@ int main()
             cout << ans << " ";
             r++;
         }
+        map<int,int> ans;
+
+        ans.find(x)->second
     }
 
     return 0;

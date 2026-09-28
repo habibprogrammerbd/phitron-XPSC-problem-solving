@@ -12,39 +12,52 @@ int main()
     {
         int n;
         cin >> n;
-        vector<int> v(n);
+        vector<long long int> v(n);
+        vector<long long int> pre(n);
         for (int i = 0; i < n; i++)
         {
             cin >> v[i];
         }
+
+        pre[0] = v[0];
+
+        for (int i = 1; i < v.size(); i++)
+        {
+            pre[i] = pre[i - 1] + v[i];
+        }
+
         string s;
         cin >> s;
-        // vector<pair<int,string>> vp(n);
 
-        // for (int i = 0; i < n; i++)
-        // {
-        //     /* code */
-        // }
-        set<int> st;
-        st.insert
-
-        int l = 0, r = 0;
+        int left = 0, right = s.size() - 1;
         long long int sum = 0;
-        while (r < v.size())
-        {
 
-            if (s[r] == 'R')
+        while (left < right)
+        {
+            if (s[left] == 'L' && s[right] == 'R')
             {
-                l = r;
-                sum += v[l];
+                if (left == 0)
+                {
+                    sum += pre[right];
+                }
+                else
+                {
+                    sum += (pre[right] - pre[left - 1]);
+                }
+                left++, right--;
+            }
+            else if (s[left] == 'R')
+            {
+                left++;
             }
             else
             {
-                sum += v[l];
+                right--;
             }
-
-            r++;
         }
+
+        // for (auto x : pre)
+        //     cout << x << " ";
 
         cout << sum << endl;
     }
