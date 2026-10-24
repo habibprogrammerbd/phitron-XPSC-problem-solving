@@ -40,6 +40,7 @@ int main()
             }
         }
         r++;
+        continue;
     }
 
     cout << ans << endl;
