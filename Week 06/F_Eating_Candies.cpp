@@ -18,14 +18,11 @@ int main()
         {
             cin >> v[i];
         }
-        int i = 1, j = n - 2, al = v[0], bob = v[n - 1], ans = 0;
+        int i = 0, j = n - 1, al = 0, bob = 0, ans = 0;
 
         while (i <= j)
         {
-            if (bob == al)
-            {
-                ans = max(ans, (i + ((n - 1) - j)));
-            }
+           
             if (al < bob)
             {
                 al += v[i];
